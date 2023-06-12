@@ -1,0 +1,33 @@
+{% extends 'quizzit/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    {% if category %}
+        {{ category.name }}
+    {% else %}
+        Unknown Category
+    {% endif %}
+{% endblock %}
+
+{% block link_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/category.css' %}"/>
+{% endblock %}
+
+{% block body_block %}
+    {% if category %}
+        <h1>{{ category.name }}</h1>
+        <div class="buttons-container">
+            {% for q in quiz %}
+                {% if q.difficulty == q.EASY %}
+                    <a href="{% url 'quizzit:quiz' category.slug q.slug %}"><button id="btnEasy">Easy</button></a>
+                {% elif q.difficulty == q.MED %}
+                    <a href="{% url 'quizzit:quiz' category.slug q.slug %}"><button id="btnMedium">Medium</button></a>
+                {% elif q.difficulty == q.HARD %}
+                    <a href="{% url 'quizzit:quiz' category.slug q.slug %}"><button id="btnHard">Hard</button></a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% else %}
+        The specified category does not exist.
+    {% endif %}
+{% endblock %}

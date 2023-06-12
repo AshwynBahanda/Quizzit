@@ -1,0 +1,28 @@
+{% extends 'quizzit/base.html' %}
+{% load staticfiles %}
+
+{% block link_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
+{% endblock %}
+
+{% block title_block %}
+    Register
+{% endblock %}
+
+{% block body_block %}
+    {% if registered %}
+        <h1><strong>Thank you for registering!</strong></h1>
+        <button id="btnHome">Return to Home</button>
+    {% else %}
+        <div class="register-fields">
+            <h1><u>Register</u></h1>
+            <br />
+            <form id="user_form" method="post" action="{% url 'quizzit:register' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ user_form.as_p }}
+                {{ profile_form.as_p }}
+                <input id="btnRegister" type="submit" name="submit" value="Register" />
+            </form>
+        </div>
+    {% endif %}
+{% endblock %}

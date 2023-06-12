@@ -1,0 +1,73 @@
+{% extends 'quizzit/base.html' %}
+{% load staticfiles %}
+
+{% block link_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/>
+{% endblock %}
+
+{% block body_block %}
+    <div class='Logo-image'>
+        <img id="center-logo" src="{% static 'images/Quizzit_Logo.png' %}" alt="Quizzit-Logo">
+    </div>
+
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+            <div class="rectangles" id="rectangle1">
+                <h1 id="title">Top Three Most Popular Quizzes:</h1>
+                <a class="quiz_links" href="{% url 'quizzit:quiz' most_popular_quiz_1.category.slug most_popular_quiz_1.slug %}">
+                    <button id="quiz_1" class="quiz_buttons">{{ most_popular_quiz_1.name }}</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="rectangles" id="rectangle2">
+                <h1 id="title">Top Three Most Popular Quizzes:</h1>
+                <a class="quiz_links" href="{% url 'quizzit:quiz' most_popular_quiz_2.category.slug most_popular_quiz_2.slug %}">
+                    <button id="quiz_2" class="quiz_buttons">{{ most_popular_quiz_2.name }}</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="rectangles" id="rectangle3">
+                <h1 id="title">Top Three Most Popular Quizzes:</h1>
+                <a class="quiz_links" href="{% url 'quizzit:quiz' most_popular_quiz_3.category.slug most_popular_quiz_3.slug %}">
+                    <button id="quiz_3" class="quiz_buttons">{{ most_popular_quiz_3.name }}</button>
+                </a>
+            </div>
+        </div>
+
+        </div>
+        <br>
+
+        <div style="text-align:center">
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+        </div>
+
+        <script>
+        var slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 5000); 
+        }
+        </script>
+    </div>
+{% endblock %}

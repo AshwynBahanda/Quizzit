@@ -1,0 +1,82 @@
+/*LOGO*/
+img#center-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    width: 40%;
+    height: 40%;
+}
+
+.mySlides { display: none; }
+.rectangles {
+    height: 400px;
+    width: 1500px;
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#rectangle1 { background-color: rgb(124, 14, 14); }
+#rectangle2{ background-color: rgb(128, 33, 56); }
+#rectangle3 { background-color: rgb(30, 14, 124); }
+/* Caption Title */
+#title {
+    color: #f2f2f2;
+    font-size: 30px;
+    padding: 8px 12px;
+    bottom: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+a.quiz_links {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+button.quiz_buttons {
+    font-size: 25px;
+    padding: 18px;
+    border: none;
+    cursor: pointer;
+}
+#quiz_1 { background-color: #10ac10; }
+#quiz_1:hover { background-color: #4bd44b; }
+#quiz_2 { background-color: #1b5b97; }
+#quiz_2:hover { background-color: #2075c5; }
+#quiz_3 { background-color: #d85c23; }
+#quiz_3:hover { background-color: #eb8454; }
+/* The dots/bullets/indicators */
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.active {
+    background-color: #000000;
+}  
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}  
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+    .text {font-size: 11px}
+}
