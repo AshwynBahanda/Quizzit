@@ -6,6 +6,8 @@ http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
 
 # How to run
 
+Make sure you are running python version 3.8.0.
+
 Make sure to download all the requirements from the requirements.txt file using this command:
 
 pip install -r requirements.txt
